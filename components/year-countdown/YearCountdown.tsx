@@ -59,6 +59,11 @@ export function YearCountdown() {
         cacheBust: true,
         canvasWidth: exportRef.current.offsetWidth * 4,
         canvasHeight: exportRef.current.offsetHeight * 4,
+        includeQueryParams: false,
+        fetchRequestInit: {
+          mode: "cors",
+          credentials: "same-origin",
+        },
         filter: (node) => {
           // Exclude any elements marked for export exclusion
           if (node instanceof Element) {
@@ -94,6 +99,7 @@ export function YearCountdown() {
               src="/minik-min.png"
               alt="Minil Mini"
               className="w-6 h-6 sm:w-8 sm:h-8"
+              crossOrigin="anonymous"
             />
             <div className="flex font-mono! tracking-tighter text-xxs sm:text-xs! items-center justify-end gap-0.5 sm:gap-1 pr-3 sm:pr-4">
               <div className="px-2 sm:px-4 py-1 sm:py-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-full">
